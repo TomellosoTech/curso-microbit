@@ -11,6 +11,8 @@
 
 		<link type="image/ico" rel="shortcut icon" href="resources/tpl/viewer/icons/favicon.ico">
 		<link type="image/ico" rel="icon"  href="resources/tpl/viewer/icons/favicon.ico">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 
 		<!--
 			To correctly reference your Map Series in search engine:
@@ -124,6 +126,18 @@
                 background-color: #004c63;
             }
 
+            .headerMobile .titleMobile{
+                text-align: center;
+                font-size: 2rem;
+                padding-top: .3rem;
+            }
+            /* .headerMobile .menu-header .logoImg{
+                width:20%;
+            } */
+            .headerMobile .menu-header td:first-child{
+                width: 80%;
+            }
+
 		</style>
 
 		<!-- Builder top panel is injected here -->
@@ -135,11 +149,13 @@
 			<div id="headerMobile" class="headerMobile mobileView">
 				<div class="header">
 					<div class="titleArea">
-						<span class="glyphicon glyphicon-th-list menu-btn"></span>
-						<div class="title"></div>
+						<!--<span class="glyphicon glyphicon-th-list menu-btn"></span>-->
+                        <i class="fa fa-bars menu-btn" aria-hidden="true"></i>
+						<div class="title titleMobile"></div>
 					</div>
 					<div class="rightArea">
-						<span class="glyphicon glyphicon-share share-btn share-all"></span>
+						<!--<span class="glyphicon glyphicon-share share-btn share-all"></span>-->
+                        <span class="share-btn share-all"><i class="fa fa-share-alt-square" aria-hidden="true"></i></span>
 					</div>
 				</div>
 				<div class="menu"></div>
