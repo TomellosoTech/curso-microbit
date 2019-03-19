@@ -143,8 +143,8 @@ define(["lib-build/css!lib-app/bootstrap/css/bootstrap.min",
 			FastClick.attach(document.body);
 
 			// App is embedded
-			if ( window != window.top /*|| _urlParams.forceEmbed !== undefined || app.indexCfg.forceEmbed*/ )
-				$("body").addClass("isEmbed");
+			// if ( window != window.top /*|| _urlParams.forceEmbed !== undefined || app.indexCfg.forceEmbed*/ )
+			// 	$("body").addClass("isEmbed");
 
 			lang.mixin(app, {
 				map: null,
