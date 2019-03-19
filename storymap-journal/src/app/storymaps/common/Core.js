@@ -143,8 +143,8 @@ define(["lib-build/css!lib-app/bootstrap/css/bootstrap.min",
 			FastClick.attach(document.body);
 
 			// App is embedded
-			// if ( window != window.top /*|| _urlParams.forceEmbed !== undefined || app.indexCfg.forceEmbed*/ )
-			// 	$("body").addClass("isEmbed");
+			if ( window != window.top /*|| _urlParams.forceEmbed !== undefined || app.indexCfg.forceEmbed*/ )
+				$("body").addClass("isEmbed");
 
 			lang.mixin(app, {
 				map: null,
@@ -639,20 +639,20 @@ define(["lib-build/css!lib-app/bootstrap/css/bootstrap.min",
 
 			var shareElements = [$(".shareBtns")];
 
-			app.embedBar = new EmbedBar({
-				classicEmbedMode: classicEmbedMode,
-				strings: strings,
-				appCreationDate: app.data.getWebAppItem().created,
-				june2018ReleaseDate: app.cfg.JUNE_RELEASE_DATE,
-				isBuilder: app.isInBuilder,
-				isEsriLogo: isEsriLogo,
-				logoPath: "app/storymaps/common/_resources/icons/esri-logo-black.png",
-				logoElements: [$(".logoContainer")],
-				taglineElements: [$(".linkContainer")],
-				shareElements: shareElements,
-				appTitle: app.data.getWebAppData().getTitle(),
-				bitlyCreds: [app.cfg.HEADER_SOCIAL.bitly.key, app.cfg.HEADER_SOCIAL.bitly.login]
-			});
+			// app.embedBar = new EmbedBar({
+			// 	classicEmbedMode: classicEmbedMode,
+			// 	strings: strings,
+			// 	appCreationDate: app.data.getWebAppItem().created,
+			// 	june2018ReleaseDate: app.cfg.JUNE_RELEASE_DATE,
+			// 	isBuilder: app.isInBuilder,
+			// 	isEsriLogo: isEsriLogo,
+			// 	logoPath: "app/storymaps/common/_resources/icons/esri-logo-black.png",
+			// 	logoElements: [$(".logoContainer")],
+			// 	taglineElements: [$(".linkContainer")],
+			// 	shareElements: shareElements,
+			// 	appTitle: app.data.getWebAppData().getTitle(),
+			// 	bitlyCreds: [app.cfg.HEADER_SOCIAL.bitly.key, app.cfg.HEADER_SOCIAL.bitly.login]
+			// });
 
 			// Resize everything after picture has been set
 			handleWindowResize();
