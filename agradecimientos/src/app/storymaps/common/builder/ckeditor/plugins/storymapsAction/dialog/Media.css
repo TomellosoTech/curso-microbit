@@ -1,0 +1,21 @@
+.editorDialogMedia {
+	/*z-index: 9996;*/
+}
+
+.editorDialogMedia .textInputContainer {
+	position: relative;
+	display: inline-block;
+	width: 395px;
+}
+
+.editorDialogMedia .textInputContainer.has-feedback .form-control-feedback {
+	display: block;
+}
+
+.editorDialogMedia .webmapSelector .map-cfg-title {
+  font-size: 1em;
+}
+
+.editorDialogMedia .smallSize .media-type {
+  font-size: 0.9em;
+}

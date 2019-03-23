@@ -1,0 +1,61 @@
+@import '../../core/Variables';
+
+.block.block-audio .block-media {
+  min-height: 100px;
+  min-width: 300px; /* chrome audio player 242px min */
+  max-width: 600px;
+
+  .audio {
+    height: auto;
+    background: transparent;
+    position: relative;
+    z-index: 3; // over the invites, which below get z-index 2
+  }
+
+  audio {
+    width: 67%;
+    margin-top: 25px;
+
+    @media (max-width: @screen-md) {
+      width: 80%;
+    }
+  }
+
+  .media-cfg-invite .builder-invite-background {
+    z-index: 2;
+  }
+
+}
+
+/* need lots of selectors here to override a different
+ * error block styling */
+.builder-mode .block.block-audio.error .block-media {
+  .loading-error {
+    top: 5px;
+    z-index: 1;
+    margin-left: 0;
+    left: 16.5%;
+    width: 67%;
+    text-align: center;
+  }
+  audio {
+    margin-top: 50px;
+  }
+}
+
+.imm-panel .block.block-audio .block-media {
+  text-align: center;
+}
+
+.imm-panel .block.block-audio.error .block-media {
+  .loading-error {
+    width: 100%;
+    text-align: center;
+    left: 0;
+    margin-left: 0;
+    font-size: 0.8em;
+    top: 5px;
+    text-shadow: none;
+    padding: 0 20px;
+  }
+}

@@ -1,0 +1,58 @@
+@import "mp-variables";
+
+.media-picker {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .btn.active,
+  .btn:active {
+    box-shadow: none;
+  }
+
+  // search controls in sidepanel AND main browse panel!
+  .search {
+    font-size: inherit;
+    width: 100%;
+    margin: 15px 0;
+    border: 1px solid @gray;
+
+    * {
+      font-size: inherit;
+    }
+
+    .input-group-addon {
+      position: relative;
+      background-color: white;
+      border: 1px solid transparent;
+    }
+
+    .btn.danger:hover,
+    .btn.danger:active,
+    .btn.danger:focus {
+      color: @brand-danger;
+    }
+
+    .form-control, .input-group-addon {
+      padding: 6px;
+    }
+
+    .form-control:not(:focus), .btn:not(:focus) {
+      border-color: transparent;
+      z-index: 1;
+    }
+
+    // duplicate focus of text input
+    .btn:focus {
+      outline: none;
+      border-color: @btn-info-border;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.075), 0 0 5px @focus-shadow-color;
+      z-index: 3;
+    }
+
+    .form-control ~ .input-group-addon {
+      padding: 6px;
+    }
+
+  }
+}

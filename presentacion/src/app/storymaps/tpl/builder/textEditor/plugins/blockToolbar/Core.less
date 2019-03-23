@@ -1,0 +1,198 @@
+.block-toolbar-button {
+  display: block;
+  position: absolute;
+  top: 0;
+
+  font-size: 0.9em;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  /* Below add menu */
+  z-index: 9;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: opacity .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out;
+  -webkit-transition: opacity .2s ease-in-out;
+
+  // The button
+  .block-toolbar-button-status {
+    display: block;
+    box-sizing: border-box;
+    width: 32px;
+    height: 32px;
+    border-radius: 20px;
+    border: 1px solid;
+    font-size: 16px;
+    line-height: 31px;
+    text-align: center;
+    text-decoration: none;
+    background: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: -10px;
+    border: 0px;
+    background: linear-gradient(to right, rgb(255,255,255), rgb(220,220,220));
+    color: #666666;
+    font-size: 14px;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  // Button is visible
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  // Toolbar is open
+  &.buttons-active {
+    /* Above add menu when active */
+    z-index: 11;
+
+    .block-toolbar-button-status {
+      border: 0px;
+      background: linear-gradient(to right, rgb(255,255,255), rgb(220,220,220));
+      color: #666666;
+      font-size: 14px;
+    }
+  }
+}
+
+// Toolbar container
+.block-toolbar-buttons {
+  display: block;
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  background-color: rgba(255,255,255,0.95);
+  box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.2);
+  border-radius: 2px;
+
+  /* Above add toolbar */
+  z-index: 11;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: opacity .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out;
+  -webkit-transition: opacity .2s ease-in-out;
+
+  &::after {
+    width: 19px !important;
+    height: 12px !important;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAMCAYAAACA0IaCAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNy8yOS8xNizKUXAAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAABVElEQVQokZ3Qz0oCURTH8e8VJ4NIJcJdfxaDA7MZNV2LPkAa1KJ2vlbQK/gOQQ8QtAsKWkTiHcaUMahrnDZ3ZBhUqgPDXGbO78O5BxEByBljbuQfZYy5BnLWQQFOEATlOI6Hf4HiOB4GQVAGHOuQA7aBiuu6vtb69jeQ1vrOdV0fqNh8LpmsAOwDVc/zOqPR6H4TNB6PHzzP6wBVmysACnvXPLALHAB13/dPtdaPq6AwDJ9rtVoPqNv+XSAvIiSYSoGHQKPVap1NJpOXNDSdTl/b7fY50LB9RZtTSywFOrbhCDjpdrsXs9nsTURkPp+HvV7vCmja/8Vk8UsjOWTAEnAMNPv9/mUURU+DwWAAtOz3UhYSETteqpRSyZV3gDKwZxf8CbwDEfABGMmE82RKREQptbABgAWwBXwB8TqI5eJWVGpCx76/AbMO2oilwOQRO/jawA95E2er1dRzagAAAABJRU5ErkJggg==') !important;
+    left: 6px !important;
+    margin-left: 1px !important;
+    border: none !important;
+    border-style: none !important;
+    border-width: 8px, 10px, 0 10px;
+    left: 18px;
+    top: 32px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      transform: scale(0);
+      transition: transform .1s 10ms;
+
+      a {
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 0 5px;
+        width: 36px;
+        height: 32px;
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        cursor: pointer;
+
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        color: #666666;
+
+        &:hover {
+          background-color: #d3d3d3;
+        }
+
+        &.active {
+          background-color: #DCDCDC;
+        }
+
+        .fa {
+          font-size: 15px;
+        }
+      }
+    }
+
+    /*
+     * Add a visual separator
+     * TODO: should be dynamic if we keep this
+     */
+
+    li:nth-child(3) a {
+      border-right: 1px solid #EEEEEE;
+    }
+  }
+
+  &.active {
+    // Toolbar
+    //display: block;
+    opacity: 1;
+    visibility: visible;
+
+    width: inherit;
+    height: inherit;
+
+    li {
+      transition-duration: .2s;
+      transform: scale(1);
+      transition-delay: 10ms;
+
+      &:nth-child(2) {
+        transition-delay: 30ms;
+      }
+      &:nth-child(3) {
+        transition-delay: 60ms;
+      }
+      &:nth-child(4) {
+        transition-delay: 90ms;
+      }
+      &:nth-child(5) {
+        transition-delay: 120ms;
+      }
+      &:nth-child(6) {
+        transition-delay: 150ms;
+      }
+    }
+  }
+}

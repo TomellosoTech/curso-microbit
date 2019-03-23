@@ -1,0 +1,10 @@
+<div id="{{imageGalleryID}}" class="image-gallery-wrapper" contenteditable="false">
+  {{#each images}}
+    <img alt="" src="{{url}}" data-index="{{@index}}" data-image="{{url}}" data-description="" data-width="{{width}}" data-height="{{height}}"/>
+  {{/each}}
+</div>
+<div class="builder-ui ig-add" data-toggle="tooltip">
+  <span class="ig-action-icon ig-add-icon glyphicon glyphicon-plus"></span>
+</div>
+<div class="builder-ui ig-temp-placeholder"></div>
+<div class="block-caption" data-placeholder="{{placeholder}}" contenteditable="{{captionEditable}}">{{{caption}}}</div>

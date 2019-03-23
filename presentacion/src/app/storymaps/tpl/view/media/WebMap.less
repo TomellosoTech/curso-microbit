@@ -1,0 +1,125 @@
+/*
+ * Simple aspect ratio for the media height
+ */
+
+.block-type-webmap {
+  position: relative;
+
+  .map {
+    width: 100%;
+    height: 100%;
+  }
+
+  .block-media {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+
+  .block-media-wrapper {
+    padding-top: 50%;
+    position: relative;
+  }
+
+  &.block-size-small .block-media-wrapper {
+    padding-top: 30%;
+  }
+
+  &.block-size-large .block-media-wrapper {
+    padding-top: calc(~"100vh - 120px");
+  }
+}
+
+.background-type-webmap {
+  .map {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/*
+ * Map customization
+ */
+
+.esriSimpleSliderTL {
+  top: auto;
+  bottom: 60px;
+  left: auto;
+  right: 7px;
+
+  .esriSimpleSliderIncrementButton,
+  .esriSimpleSliderDecrementButton {
+    outline: none;
+  }
+}
+
+.interaction-button .esriSimpleSliderTL {
+  bottom: 90px;
+}
+
+/* popup always active even when map container is disabled */
+.esriPopup {
+  pointer-events: all;
+}
+
+/* drop the close button if interaction-disabled except if config panel is open */
+.interaction-disabled:not(.builder-config-open) .esriPopup .titleButton.close {
+  display: none;
+}
+
+.esriPopup .titleButton.close {
+	opacity: 1.0 !important;
+}
+
+.esriPopup .maximize {
+	display: none;
+}
+
+.esriPopup .contentPane {
+  border-radius: 0px 0px 5px 5px;
+}
+
+.esriPopup .actionsPane {
+	display: none !important;
+}
+
+.legend {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  max-width: 200px;
+  max-height: 300px;
+}
+
+/*
+ * Interaction
+ */
+
+.interaction-disabled,
+.interaction-button:not(.interaction-enabled) {
+  .map .esriSimpleSlider {
+    display: none;
+  }
+}
+
+.builder-config-open .map .esriSimpleSliderTL {
+  display: block !important;
+}
+
+.builder-config-open.interaction-button .esriSimpleSliderTL {
+  bottom: 60px;
+}
+
+/*
+ * Responsive
+ */
+
+body.mobile-view .block-type-webmap.block-size-small .block-media-wrapper {
+  padding-top: 50%;
+}
+
+body.mobile-view .block-type-webmap .interaction-container {
+  bottom: 30px;
+}

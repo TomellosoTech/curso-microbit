@@ -1,0 +1,199 @@
+@import "../../../core/Variables";
+
+/*
+ * /!\ The rules related to size and placement have couterpart in JavaScript
+ *  for the builder UI, see PanelBuilder > updateBuilderEditorPlacementRules
+ */
+
+ @keyframes fade-in-media {
+   0% {
+     opacity: 0;
+   }
+   100% {
+     opacity: 1;
+   }
+ }
+
+ body:not(.builder-mode) .layout-scroll-full {
+   .imm-panel:not(.bring-in) {
+     opacity: 0;
+   }
+
+   .imm-panel.bring-in {
+     animation: fade-in-media 1s;
+   }
+ }
+
+.imm-panel {
+  min-height: 100vh;
+  padding-bottom: 380px;
+  padding-top: 20px;
+
+  .blocksWrapper {
+    position: relative;
+    min-width: 250px;
+    max-width: 400px;
+    margin-left: 30px;
+    pointer-events: all !important;
+  }
+
+  &.size-small .blocksWrapper {
+    width: 28%;
+    max-width: 300px;
+  }
+
+  &.size-medium .blocksWrapper {
+  width: 38%;
+  }
+
+  &.size-large .blocksWrapper {
+    width: 48%;
+    max-width: 600px;
+  }
+
+  .blocks {
+    padding: 15px;
+    min-height: 100px;
+    overflow-y: auto;
+    a {color: @brand-info;};
+
+    .block {
+      margin-top: 15px;
+
+      &:nth-child(1) {
+        margin-top: 0;
+      }
+    }
+
+    .image {
+      padding: 0;
+
+      img {
+        max-width: 100%;
+        height: inherit !important;
+      }
+    }
+
+    /* no size config yet */
+    .block-media-wrapper,
+    .block-caption {
+      width: 100%;
+      position: relative;
+      max-width: none !important;
+    }
+
+    .block-type-video .block-media-wrapper {
+      padding-top: 56% !important;
+      position: relative;
+    }
+  }
+
+  .block-type-video .block-media {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  &.size-large {
+    .blocks {
+      .portrait {
+        .block-media, .block-caption {
+            width: 70%;
+        }
+      }
+    }
+  }
+
+  &.size-medium {
+    .blocks {
+      .portrait {
+        .block-media, .block-caption {
+            width: 80%;
+        }
+      }
+    }
+  }
+
+  /*
+   * Theme
+   */
+
+  &.theme-white-over-black {
+    .blocks {
+      color: #FFF;
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+  }
+
+  &.theme-black-over-white {
+    .blocks {
+      color: #000;
+      background-color: rgba(255, 255, 255, 0.75);
+    }
+  }
+
+  /*
+   * Style
+   */
+
+  &.style-text-shadow.theme-black-over-white {
+    .blocks {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 1);
+      background-color: inherit;
+    }
+  }
+
+  &.style-text-shadow.theme-white-over-black {
+    .blocks {
+      text-shadow: 0 0 8px rgba(0, 0, 0, 1);
+      background-color: inherit;
+    }
+  }
+
+  /*
+   * Placement
+   */
+
+  &.placement-right .blocksWrapper {
+    margin-left: auto;
+    margin-right: 30px;
+  }
+
+  &.placement-center .blocksWrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.layout-scroll-partial .imm-panel {
+  .blocks {
+    opacity: 0;
+  }
+}
+
+/*
+ * Responsive
+ */
+
+body.mobile-view .imm-panel {
+  .blocksWrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .blocks {
+    padding: 5px;
+  }
+  .block {
+    font-size: 14px;
+    line-height: 150%;
+    padding: 5px;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+}

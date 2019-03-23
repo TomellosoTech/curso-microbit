@@ -1,0 +1,264 @@
+@import "../../../core/Variables";
+
+.section-immersive .background:not(.active) {
+  pointer-events: none !important;
+}
+
+/*
+ * Background
+ */
+
+.section-immersive .background {
+  height: 100vh;
+  right: 0;
+  bottom: 0;
+}
+
+.builder-mode .section-immersive .background {
+  height: calc(100vh ~"-" @immersive-panel-height);
+}
+
+body.embed-mode-bar .section-immersive .background {
+  height: calc(100vh ~"-" @embed-bar-height);
+}
+
+.section-immersive.active .background {
+  position: fixed;
+}
+
+/* todo: need a class for those */
+.section-immersive .background-filler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FFF;
+}
+
+.theme-major-dark .section-immersive .background-filler {
+  background-color: #0E0E0E;
+}
+
+body.builder-mode .section-immersive.active .background {
+  left: @builder-panel-width;
+  width: calc(100% ~"-" @builder-panel-width);
+}
+
+/*
+ * Title
+ */
+
+.section-immersive .background-title {
+  top: 60px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  text-align: center;
+  color: #FFF;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.95);
+  font-size: 120%;
+  -webkit-transition: opacity 1s ease-out;
+  -moz-transition: opacity 1s ease-out;
+  -ms-transition: opacity 1s ease-out;
+  -o-transition: opacity 1s ease-out;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+  pointer-events: none;
+
+  .background-title-wrapper {
+    display: inline-block;
+    position: relative;
+  }
+
+  h2 {
+    pointer-events: auto;
+    font-size: 36px;
+    line-height: 105%;
+  }
+}
+
+.section-immersive.active .background-title {
+  position: fixed;
+  opacity: 1;
+}
+
+body.builder-mode .section-immersive.active .background-title {
+  left: @builder-panel-width;
+}
+
+.section-immersive.hide-title .background-title {
+  opacity: 0 !important;
+}
+
+/*
+ * Credits
+ */
+
+.section-immersive .background-credits {
+  bottom: 0px;
+  right: 5px;
+
+  text-shadow: 0 0 8px #ffffff;
+  z-index: 2;
+  color: #666;
+
+  -webkit-transition: opacity 1s ease-out;
+  -moz-transition: opacity 1s ease-out;
+  -ms-transition: opacity 1s ease-out;
+  -o-transition: opacity 1s ease-out;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+}
+
+.section-immersive.active .background-credits {
+  position: fixed;
+  opacity: 1;
+}
+
+.section-immersive.hide-credits .background-credits {
+  opacity: 0 !important;
+}
+
+/*
+ * Foreground
+ */
+
+.section-immersive {
+  .foreground {
+    position: relative;
+    padding-top: 100vh;
+    padding-bottom: 0;
+    font-size: 1.3em;
+    line-height: 160%;
+    color: #FFF;
+    z-index: 2;
+    pointer-events: none;
+    width: 100%;
+  }
+}
+
+body.mobile-view .background-title h2 {
+  font-size: 1.4em;
+  line-height: 105%;
+}
+
+body.mobile-view {
+  .section {
+    .background-title {
+      .text-background {
+        max-width: 100%;
+        &.background-dark, &.background-light {
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+
+.section-immersive {
+  .background:not(.active) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .background.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: inherit;
+  }
+
+  /*
+   * Using 'all' and not just opacity is much smoother in viewer
+   */
+  &:not(.disable-transition) {
+    .background.transition-fade-slow {
+      transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
+    }
+
+    .background.transition-fade-fast {
+      transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+  }
+
+
+  /* prevent last image from fading out */
+  /* TODO would need to flip the image order and have them in a container to do that properly? */
+  /*
+  .background-type-image:not(.active):nth-last-child(2) .image {
+    opacity: 1;
+  }
+  */
+  .background:not(.active):nth-last-child(2) {
+    -webkit-transition: initial;
+    transition: initial;
+  }
+
+  .background-type-image.active .image.no-fade {
+    opacity: 1.0;
+  }
+}
+
+/*
+ * Swipe transition
+ */
+
+/* TODO temporary fix when navigating away, need to unload properly the section */
+.section-immersive:not(.active) .background-swipe-trans-extras {
+  display: none !important;
+}
+
+.background-swipe-trans-extras {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  pointer-events: none;
+
+  &.active {
+    display: block;
+  }
+
+  .separator-vertical {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    display: none;
+    width: 100%;
+    height: 10px;
+    box-shadow: inset 0 -24px 26px -30px rgba(0,0,0,1);
+  }
+
+  .separator-horizontal {
+    position: absolute;
+    top: 0px;
+    left: -10px;
+    right: 0;
+    display: none;
+    width: 10px;
+    height: 100%;
+    box-shadow: inset -24px 0px 26px -30px rgba(0,0,0,1);
+  }
+
+  &.trans-vertical .separator-vertical {
+    display: block;
+  }
+
+  &.trans-horizontal .separator-horizontal {
+    display: block;
+  }
+}
+
+body.builder-mode .background-swipe-trans-extras {
+  left: @builder-panel-width;
+  width: calc(100% ~"-" @builder-panel-width);
+}
+
+body.builder-mode .separator-horizontal {
+  margin-left: @builder-panel-width;
+}

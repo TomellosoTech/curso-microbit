@@ -1,0 +1,31 @@
+{
+  "name": "react-bootstrap",
+  "version": "0.30.10",
+  "homepage": "https://react-bootstrap.github.io/",
+  "author": "Stephen J. Collings <stevoland@gmail.com>",
+  "license": "MIT",
+  "main": [
+    "react-bootstrap.js"
+  ],
+  "keywords": [
+    "react",
+    "ecosystem-react",
+    "react-component",
+    "bootstrap"
+  ],
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "react": ">=0.14.0"
+  },
+  "_release": "0.30.10",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.30.10",
+    "commit": "bcd3a352526b905d450fd988fc7f770ffd235b66"
+  },
+  "_source": "https://github.com/react-bootstrap/react-bootstrap-bower.git",
+  "_target": "~0.30.3",
+  "_originalSource": "react-bootstrap"
+}

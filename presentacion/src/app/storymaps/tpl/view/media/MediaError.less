@@ -1,0 +1,324 @@
+@import '../../core/Variables';
+
+// there are five places media can show up:
+// sequential block and immersive panel block are both .block-media
+// cover is .section-layout-cover .background
+// title is .section-layout-title .background
+// immersive is .section-immersive .background
+
+
+.loading-error {
+  position: absolute;
+  left: 20px;
+  font-family: 'open_sans', sans-serif;
+  color: @gray;
+  font-size: 16px;
+  z-index: 2;
+  line-height: 1.4em;
+  text-align: left;
+  display: none;
+
+  .fa {
+    margin-right: 5px;
+  }
+}
+
+// both viewer and editor error formatting
+.background.error,
+.block.error .block-media,
+.ug-thumb-wrapper.error {
+  background: #f9f9f9;
+
+  .media-loading {
+    display: none;
+  }
+
+}
+
+.ug-thumb-wrapper.error {
+  padding-left: 0 !important; // sorry for all the !importants.
+  margin-left: 15px;
+
+  img {
+    display: none;
+  }
+}
+
+// just viewer (minimize error in sequence and panel)
+body:not(.builder-mode) {
+
+  .loading-error {
+    display: block;
+  }
+
+  .block.error .block-media.minimize-on-viewer,
+  .ug-thumb-wrapper.error.minimize-on-viewer {
+    height: auto;
+    padding-top: 0;
+
+    .loading-error {
+      position: static;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 2px 10px;
+    }
+
+    .image-container,
+    .media-media {
+      display: none;
+    }
+
+  }
+
+  // minimize width of block-media error in sequential section
+  // (large images collapse to small width)
+  .section-layout-sequence {
+    .block.error .block-media {
+      width: 40%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &.mobile-view .section-layout-sequence .block-audio.error .block-media {
+    width: 80%;
+  }
+
+  .block.error .block-media:not(.minimize-on-viewer) {
+    .loading-error {
+      top: 20px;
+    }
+  }
+}
+
+
+// formatting for errors in background
+// (cover, immersive, title)
+.background.error {
+  .loading-error {
+    top: 100px;
+  }
+}
+
+// formatting for errors in title
+.section-layout-title .background.error {
+  .loading-error {
+    top: 20px;
+  }
+}
+
+// only builder error formatting
+
+.builder-mode {
+
+  // all error types (sequential, cover, title, immersive, panels, image galleries)
+  .block.error .block-media,
+  .background.error,
+  .ug-thumb-wrapper.error {
+
+    border-left: 10px solid @sm-danger-text;
+
+    &, .map {
+      background: #eee;
+    }
+
+    .loading-error {
+      width: auto;
+      color: @sm-danger-text;
+      z-index: 1;
+    }
+
+    &.show-loading-error {
+      .loading-error {
+        display: block;
+      }
+    }
+
+    .scene ~ .loading-error {
+      left: 60px;
+    }
+
+    .builder-invite-background {
+      border-bottom-color: @sm-danger-text;
+    }
+
+    .ig-media-swap {
+
+      .ig-action-icon {
+        color: white !important;
+      }
+
+      .ig-background {
+        border-bottom-color: @sm-danger-text !important; // this already has *six* class selectors elsewhere :\
+      }
+    }
+
+    .video ~ .media-cfg-invite .builder-invite-background {
+      background-color: @sm-danger-text !important; // it already had important elsewhere
+    }
+
+    .builder-invite-open {
+      color: white;
+    }
+  }
+
+  .block.error,
+  .background.error,
+  .ug-thumb-wrapper.error,
+  .block.warning,
+  .background.warning,
+  .ug-thumb-wrapper.warning {
+    // put a border on the "Manage" and "Issues" tabs and
+    // adjust the padding of the other tabs to preserve alignment
+    .media-cfg-panel {
+      .tab {
+        padding-left: 5px;
+
+        .border-error {
+          top: -1px;
+          bottom: 0;
+          width: 5px;
+          background: @sm-danger-text;
+          position: absolute;
+          left: -5px;
+        }
+
+        .border-warning {
+          top: -1px;
+          bottom: 0;
+          width: 5px;
+          background: @Calcite_Orange_a150;
+          position: absolute;
+          left: -5px;
+        }
+      }
+    }
+  }
+
+  .block.warning .block-media,
+  .background.warning,
+  .ug-thumb-wrapper.warning {
+    border-left: 10px solid @Calcite_Orange_a150;
+
+    &, .map {
+      background: #eee;
+    }
+
+    .loading-warning {
+      width: auto;
+      color: @Calcite_Orange_a150;
+    }
+
+    &.show-loading-warning {
+      .loading-error {
+        display: block;
+      }
+    }
+
+    .scene ~ .loading-warning {
+      left: 60px;
+    }
+
+    .builder-invite-background {
+      border-bottom-color: @Calcite_Orange_a150;
+    }
+
+    .ig-media-swap {
+
+      .ig-action-icon {
+        color: white !important;
+      }
+
+      .ig-background {
+        border-bottom-color: @Calcite_Orange_a150 !important; // this already has *six* class selectors elsewhere :\
+      }
+    }
+
+    .video ~ .media-cfg-invite .builder-invite-background {
+      background-color: @Calcite_Orange_a150 !important; // it already had important elsewhere
+    }
+
+    .builder-invite-open {
+      color: white;
+    }
+  }
+
+  // just sequential and panel errors
+  .block.error .block-media {
+    height: auto;
+    border-left-color: fade(@sm-danger-text, 80%);
+
+    &:hover {
+      border-left-color: @sm-danger-text;
+    }
+
+    .loading-error {
+      top: 20px;
+    }
+
+    // if the image has an error on it, but it was a short image,
+    // you need this much height to get to the edit and delete buttons
+    // and to notice you've got a problem in the first place
+    .image-container {
+      display: block;
+      min-height: 180px;
+    }
+
+    .media-cfg-invite {
+      opacity: 0.85;
+    }
+  }
+
+  .block.warning .block-media {
+    height: auto;
+    border-left-color: fade(@Calcite_Orange_a150, 80%);
+
+    &:hover {
+      border-left-color: @Calcite_Orange_a150;
+    }
+
+    .loading-warning {
+      top: 20px;
+    }
+
+    // if the image has an error on it, but it was a short image,
+    // you need this much height to get to the edit and delete buttons
+    // and to notice you've got a problem in the first place
+    .image-container {
+      display: block;
+      min-height: 180px;
+    }
+
+    .media-cfg-invite {
+      opacity: 0.85;
+    }
+  }
+
+  // keep opacity of left border on config panel open
+  // (above it's just on hover, but the config panel is
+  // below the image, so hover won't work here)
+  .block.config-panel-active.error .block-media {
+    border-left-color: @sm-danger-text;
+  }
+
+  .block.config-panel-active.warning .block-media {
+    border-left-color: @Calcite_Orange_a150;
+  }
+
+  // just image galleries
+  .ug-thumb-wrapper.error {
+    .loading-error {
+      top: 20px;
+      max-width: 100%;
+    }
+  }
+}
+
+.op-item-main.error {
+  border-left: 10px solid @sm-danger-text;
+}
+
+.op-item-main.warning {
+  border-left: 10px solid @Calcite_Orange_a150;
+}

@@ -1,0 +1,170 @@
+@import '../../../core/Variables';
+
+.section-layout-cover {
+  font-family: 'open_sans', sans-serif;
+
+  .scroll-invite {
+    left: 90px !important;
+    width: calc(~"100% - 180px") !important;
+  }
+
+  &.hide-scroll-invite .scroll-invite {
+    display: none;
+  }
+
+  .cover-title,
+  .cover-subtitle {
+    outline: none;
+  }
+
+  /*
+   * Title
+   */
+
+   .cover-title[contenteditable=true]:empty {
+     font-size: 45px;
+     line-height: 117px;
+     margin: auto;
+   }
+
+   .cover-title[contenteditable=true]:focus:empty {
+     padding-left: 50%;
+     /* in non-firefox browsers, if we don't have it left-aligned when empty the caret will be 3/4 across the title */
+     text-align: left;
+   }
+
+  .cover-title[contenteditable=true]:empty:before {
+    display: block;
+    white-space: pre;
+  }
+
+  .cover-title[contenteditable=true]:not(:focus):empty:before {
+    content: attr(placeholder);
+  }
+
+  /* put it before if it is empty but focused... */
+  .cover-title[contenteditable=true]:focus:empty:before {
+    content: '\feff';
+  }
+
+  .cover-title[contenteditable=true]:focus {
+    font-size: 7em;
+    line-height: 117px;
+  }
+
+  .cover-title.title-error {
+    border: 2px solid @sm-brand-danger;
+    box-shadow: 0 0 6px 2px fade(@sm-brand-danger, 60%) inset;
+  }
+
+  /*
+   * Subtitle
+   */
+
+  .cover-subtitle[contenteditable=true]:empty {
+     font-size: 18px;
+     line-height: 32px;
+   }
+
+   .cover-subtitle[contenteditable=true]:focus:empty {
+     padding-left: 50%;
+     /* in non-firefox browsers, if we don't have it left-aligned when empty the caret will be 3/4 across the title */
+     text-align: left;
+   }
+
+  .cover-subtitle[contenteditable=true]:empty:before {
+    display: block;
+  }
+
+  .cover-subtitle[contenteditable=true]:not(:focus):empty:before {
+    content: attr(placeholder);
+  }
+
+  .cover-subtitle[contenteditable=true]:focus:empty:before {
+    content: '\feff';
+  }
+
+  .foreground {
+    .text-background {
+      min-width: 90%;
+    }
+
+    .title-text {
+      &:hover:not(:focus):not(.title-error) {
+        border: 2px solid rgba(241, 248, 253, 0.14);
+      }
+
+      &[contenteditable=true]:empty {
+        color: #DDD;
+
+        &.cover-title {
+          border: 2px solid rgba(241, 248, 253, 0.14);
+        }
+      }
+
+      &.text-dark {
+        &:hover:not(:focus):not(.title-error) {
+          border: 2px solid rgba(15,15,15, 0.14);
+        }
+
+        &[contenteditable=true]:empty {
+          color: #555;
+
+          &.cover-title {
+            border: 2px solid rgba(15,15,15, 0.14);
+          }
+        }
+      }
+    }
+  }
+
+  /*
+   * Media placeholder
+   */
+
+  .cover-media-placeholder {
+    position: absolute;
+    width: 100%;
+
+    text-align: center;
+    color: #000;
+    text-shadow: none;
+
+    &.active {
+      display: block;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    .cover-media-placeholder-wrapper {
+      display: inline-block;
+      background-color: #CCC;
+      border-radius: 2px;
+      padding: 5px 10px;
+      margin-top: 50px;
+      cursor: pointer;
+
+      .ph-icon-media {
+        font-size: 50px;
+      }
+    }
+  }
+
+  /*
+   * Media
+   */
+
+  .media-cfg-invite,
+  .media-cfg-panel {
+    pointer-events: all;
+  }
+
+  .media-cfg-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

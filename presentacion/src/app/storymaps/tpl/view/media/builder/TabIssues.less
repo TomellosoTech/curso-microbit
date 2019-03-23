@@ -1,0 +1,197 @@
+@import '../../../core/Variables';
+
+.builder-config-section.issues {
+
+  cursor: default;
+  padding: 0 10px;
+
+  .section-content {
+    height: 100%;
+  }
+
+  .issue-summary,
+  .issue-items {
+    height: 100%;
+  }
+
+  .issue-summary {
+    position: relative;
+    background: #f9f9f9;
+    width: 70%;
+    min-width: 400px;
+
+    .item {
+      .title-wrapper {
+        position: absolute;
+        top: 0;
+        bottom: 40px;
+        padding: 10px 20px;
+        width: 100%;
+      }
+
+      .title {
+        line-height: 1.4em;
+        padding-bottom: 8px;
+        width: 100%;
+        font-size: 24px;
+        margin: 0;
+      }
+
+      .description {
+        font-size: 14px;
+        line-height: 1.2em;
+      }
+
+      .fix-btn {
+        position: absolute;
+        display: block;
+        bottom: 0;
+        width: 96%;
+        left: 2%;
+        z-index: 2;
+      }
+
+      &.error {
+        .title {
+          color: @sm-danger-text;
+        }
+      }
+
+      &.warning {
+        .title {
+          color: @Calcite_Orange_a150;
+        }
+      }
+    }
+
+    &.map-issue-summary {
+      width: 35%;
+      min-width: auto;
+      @media (max-width: @screen-md) {
+        width: 40%;
+      }
+
+      .carousel {
+        max-height: 200px;
+        min-height: 175px;
+      }
+
+
+      .item {
+        @media (max-width: @screen-md) {
+          .title {
+            font-size: 20px;
+          }
+          .description {
+            font-size: 12px;
+          }
+        }
+
+        @media (max-width: ((@screen-md + @screen-sm) / 2)) {
+          .title {
+            font-size: 18px;
+          }
+          .description {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+
+
+  .media-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  .media-info-background {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-top: 30px solid #eee;
+    border-right: 0 solid transparent;
+    border-bottom: 0 solid #eee;
+  }
+
+  .fix-tooltip {
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    font-size: 13px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .carousel {
+    height: 100%;
+    width: 100%;
+    cursor: default;
+    max-height: 225px;
+    min-height: 200px;
+
+    // ----- NAV DOTS ----- //
+    .carousel-indicators {
+      bottom: 24px;
+
+      li {
+        background-color: #ccc;
+
+        &.active {
+          background-color: #666;
+        }
+      }
+    }
+
+    // ----- ARROWS ----- //
+    .carousel-control {
+      background: none;
+      text-shadow: none;
+      color: #999;
+      bottom: 40px;
+      top: 24px;
+      opacity: 0.7;
+      &:hover {
+        color: #333;
+      }
+
+      // override serif/unicode built in bootstrap
+      // with fontawesome icons
+      .arrow {
+        font-family: FontAwesome;
+        top: 30%;
+        width: 20px;
+        margin: 0;
+      }
+
+      .icon-prev {
+        left: 2px;
+        &::before {
+          content: '\f104';
+        }
+      }
+
+      .icon-next {
+        right: 2px;
+        &::before {
+          content: '\f105';
+        }
+      }
+    }
+
+    .carousel-inner {
+      height: 100%;
+    }
+
+    .item {
+      height: 100%;
+      width: 100%;
+    }
+
+  }
+}

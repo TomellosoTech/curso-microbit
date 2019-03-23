@@ -1,0 +1,45 @@
+@import "mp-variables";
+
+.media-picker-popup .modal-dialog {
+  width: 80%;
+  height: 80%;
+  margin: 30px auto;
+
+  .modal-header {
+    padding: 15px 15px 5px;
+  }
+
+  .modal-content {
+    height: 100%;
+
+    .modal-body {
+      padding: 0;
+      position: absolute;
+      top: 45px;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: @screen-md) {
+  .media-picker-popup .modal-dialog {
+    width: 85%;
+  }
+  .media-picker-popup h3 {
+    font-size: 16px;
+  }
+}
+
+@media (max-height: @screen-short) {
+  .media-picker-popup .modal-dialog {
+    height: 85%;
+  }
+}
+
+@media (max-height: @screen-shorter) {
+  .media-picker-popup .modal-dialog {
+    height: 90%;
+    margin: 20px auto;
+  }
+}

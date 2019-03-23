@@ -1,0 +1,112 @@
+@import './Variables';
+@import '../../../tpl/core/Variables';
+
+.organize-gradient-horizontal {
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 30%,rgba(0,0,0,1) 100%);
+  background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,1) 100%);
+}
+
+.op-panel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  .overview-orientation {
+    width: 320px;
+    position: absolute;
+    top: 0;
+    left: 200px;
+    height: 100%;
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .overview-orientation-text {
+      font-size: 18px;
+      line-height: 1.4;
+      font-family: @font-family-sans-serif;
+    }
+
+    @media(max-width: 900px) {
+      width: 270px;
+
+      .overview-orientation-text {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .organize-toggle {
+    display: flex;
+    cursor: pointer;
+    flex: 0 0 auto;
+    color: @icon-color;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    font-size: @organize-icon-size;
+    text-align: center;
+
+    .organize-toggle-wrapper {
+      display: inline-block;
+      opacity: 0.9;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:not(.op-style-horizontal) {
+    .organize-toggle-wrapper {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 2px;
+
+      &:not(.btn-bright) {
+        background-color: buttonface;
+        color: #000;
+      }
+
+      .icon {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &.op-style-horizontal {
+    .organize-toggle-wrapper {
+      padding: 4px;
+      border-radius: 2px;
+    }
+  }
+
+  &.op-style-horizontal {
+    flex-direction: row;
+    height: 100%;
+    flex: 1 1 auto;
+
+    .organize-toggle {
+      .organize-gradient-horizontal;
+
+      .icon {
+        &.organize {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+  }
+}

@@ -1,0 +1,84 @@
+@import "../../../core/Variables";
+
+.background-title h2 {
+  outline: none;
+  border: 2px solid transparent;
+}
+
+.background-title h2[contenteditable=true]:empty {
+  border: 1px dashed #AAA;
+  width: 400px;
+  margin: auto;
+  color: #AAA;
+}
+
+.background-title h2[contenteditable=true]:focus:empty {
+  /* Keeps caret centered in all browsers (Firefox included); fix based on https://stackoverflow.com/questions/29288975/centering-the-placeholder-caret-in-contenteditable-element */
+  padding-left: 50%;
+  /* in non-firefox browsers, if we don't have it left-aligned when empty the caret will be 3/4 across the title */
+  text-align: left;
+}
+
+.background-title h2[contenteditable=true]:empty:before {
+  display: block;
+}
+
+.background-title h2[contenteditable=true]:not(:focus):empty:before {
+  content: attr(placeholder);
+}
+
+.background-title h2[contenteditable=true]:focus:empty:before {
+  content: '\feff';
+}
+
+.section-immersive {
+  .title-text {
+    &:hover:not(:focus) {
+      border: 2px solid rgba(241, 248, 253, 0.5);
+    }
+
+    &[contenteditable=true]:empty {
+      color: #AAA;
+      border: 2px solid rgba(241, 248, 253, 0.5);
+    }
+
+    &.text-dark {
+      &:hover:not(:focus) {
+        border: 2px solid rgba(15,15,15, 0.5);
+      }
+
+      &[contenteditable=true]:empty {
+        color: #555;
+        border: 2px solid rgba(15,15,15, 0.5);
+      }
+    }
+  }
+}
+
+.section-immersive .background .media-cfg-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.section-immersive .foreground {
+  opacity: 1;
+
+  transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+
+  .img-gallery-invite {
+    display: none;
+  }
+}
+
+.section-immersive.hide-foreground .foreground {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.section-immersive .background-type-webmap.builder-config-open .esriSimpleSliderTL {
+  bottom: 220px;
+}

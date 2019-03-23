@@ -1,0 +1,325 @@
+.block {
+  position: relative;
+  margin-top: 30px;
+  word-wrap: break-word;
+}
+
+.block-media {
+  position: relative;
+}
+
+@keyframes fade-in-media {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.media-media {
+  /* to avoid issue with map popup
+   * TODO: why is that needed? */
+  line-height: normal;
+  background-color: #FFF;
+}
+
+.theme-major-dark .media-media {
+  background-color: #0E0E0E;
+}
+
+.media-item:not(.bring-in) {
+  opacity: 0;
+}
+
+.media-item.bring-in {
+  animation: fade-in-media 1s;
+}
+
+body.mobile-view .block-media {
+  width: 100%;
+}
+
+/*
+ * Loading
+ */
+
+.media-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: #EEE; */
+  outline: 1px solid #EEE;
+  z-index: 0;
+}
+
+.theme-major-dark .media-loading {
+  /* background-color: #333; */
+  outline: 1px solid #333;
+}
+
+.media-loading .large-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/*
+ * Media caption
+ */
+
+ /* common with gallery */
+.block-caption {
+  outline: none;
+  font-family: 'open_sans', sans-serif;
+  font-size: 14px;
+  line-height: 130%;
+  opacity: .65;
+  width: 100%;
+  text-align: center;
+  /*padding-top: 5px;*/
+  margin-top: 5px !important;
+}
+
+body.mobile-view .block-caption {
+  font-size: 12px;
+  line-height: 130%;
+}
+
+body.builder-mode .block-caption {
+  min-height: 40px;
+  cursor: text;
+}
+
+body.builder-mode .block-caption:focus:empty {
+  text-align: left;
+  min-width: 0 !important;
+  width: 2px !important;
+  margin: auto;
+}
+
+body.builder-mode .block-caption:not(:focus):empty:before {
+  content: attr(data-placeholder);
+  font-style: italic;
+  color: #999;
+}
+
+/*
+ * Interaction
+ */
+
+.background.active .interaction-enabled .media-media {
+  pointer-events: all;
+}
+
+.interaction-disabled .media-media {
+  pointer-events: none;
+}
+
+.interaction-button:not(.interaction-enabled) .media-media {
+  pointer-events: none;
+}
+
+.interaction-container {
+  position: absolute;
+  bottom: 50px;
+  right: 7px;
+  pointer-events: auto;
+  display: none;
+  z-index: 99;
+}
+
+.interaction-container .glyphicon {
+  margin-right: 4px;
+}
+
+.interaction-button .interaction-container {
+  display: block;
+  pointer-events: auto;
+}
+
+.interaction-container.enabled .int-container-disabled {
+  display: none;
+}
+
+.interaction-container:not(.enabled) .int-container-enabled {
+  display: none;
+}
+
+/*
+ * When builder config is open, interaction are always authorized
+ */
+.builder-config-open .media-media:not(.video-player) {
+  pointer-events: all !important;
+}
+
+.builder-config-open .interaction-container {
+  display: none !important;
+}
+
+/*
+ * Builder 'Appearance invite'
+ */
+
+.appearance-invite::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  border: 4px dashed #005e95;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.appearance-invite::after {
+  content: attr(data-builder-invite);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #005e95;
+  padding: 2px 5px;
+  color: #FFF;
+  pointer-events: none;
+  z-index: 8;
+  font-family: 'open_sans', sans-serif;
+  z-index: 9999;
+}
+
+.background .appearance-invite::before {
+  top: 50px;
+  bottom: 182px;
+}
+
+.block .appearance-invite::after {
+  left: 75px;
+  padding-left: 10px;
+}
+
+.background .appearance-invite::after {
+  top: inherit;
+  bottom: 182px;
+}
+
+.media-is-loading .media-cfg-invite {
+  display: none !important;
+}
+
+/*
+ * Background
+ */
+
+ .bg-color {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   width: 100%;
+   height: 100%
+}
+
+/*
+ * Error
+ */
+
+.media-error {
+  border-radius: 4px;
+  text-align: center;
+  font-family: 'open_sans', sans-serif;
+  color: #959595;
+  font-size: 16px;
+  line-height: 1.4em;
+  padding: 15px;
+  width: 90%;
+  margin-left: 5%;
+  background: #DDD;
+}
+
+.theme-major-dark .media-error {
+  color: lightgray;
+  background: gray !important;
+}
+
+.background .media-error {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.background .media-error .media-error-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-left: 0;
+  padding: 15px;
+  width: 100%;
+}
+
+
+/*
+ * Hide all builder UI in viewer
+ */
+
+.builder-ui {
+  display: none;
+}
+
+body.builder-mode .builder-ui {
+  display: inherit;
+}
+
+.builder-config-open .block-caption {
+  display: none;
+}
+
+/*
+ * Delete menu for builder
+ */
+
+.media-delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  opacity: 0;
+  font-size: 24px;
+  color: #000;
+}
+
+.media-delete-background {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 70px solid transparent;
+  border-right: 0 solid transparent;
+  border-top: 70px solid rgba(232, 232, 232, 1);
+  border-bottom: 0 solid rgba(232, 232, 232, 1);
+}
+
+.media-delete-icon {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.media-delete-icon:hover {
+  opacity: 1.0;
+}
+
+.block-media:hover .media-delete {
+  opacity: 1;
+}

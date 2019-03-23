@@ -1,0 +1,101 @@
+.section-layout-title {
+
+  .foreground {
+    .title-text {
+      outline: none;
+      border: 2px solid transparent;
+
+      &:hover:not(:focus) {
+        border: 2px solid rgba(241, 248, 253, 0.14);
+      }
+
+      &[contenteditable=true]:empty {
+        border: 1px dashed #AAA;
+        width: 400px;
+        margin: auto;
+        color: #DDD;
+        border: 2px solid rgba(241, 248, 253, 0.14);
+      }
+
+      &[contenteditable=true]:focus:empty {
+        padding-left: 50%;
+        text-align: left;
+      }
+
+      &[contenteditable=true]:empty:before {
+        display: block;
+      }
+
+      &[contenteditable=true]:not(:focus):empty:before {
+        content: attr(placeholder);
+      }
+
+      &[contenteditable=true]:focus:empty:before {
+        content: '\feff';
+      }
+
+      &.text-dark {
+        &:hover:not(:focus) {
+          border: 2px solid rgba(15,15,15, 0.14);
+        }
+
+        &[contenteditable=true]:empty {
+          border: 1px dashed #666;
+          color: #555;
+          border: 2px solid rgba(15,15,15, 0.14);
+        }
+      }
+    }
+  }
+
+  /* customize media-empty invite */
+  .media-empty-add {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+
+    .media-empty-image {
+      height: 25px;
+    }
+
+    .media-empty-label {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .media-cfg-panel {
+    position: absolute;
+    top: 200px;
+    left: 0;
+
+    .builder-config {
+      background-color: #FFF;
+
+      .builder-config-section {
+        .section-content.horizontal {
+          .config-item[data-type="style"] {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+
+.builder-config-section .section-content.two-pane {
+  .content-pane:last-child {
+    margin: auto;
+  }
+  .content-pane:first-child {
+    margin-right: unset;
+  }
+}
+
+  &.media-config-active {
+    z-index: 501;
+
+    .background {
+      overflow: visible;
+    }
+  }
+}
