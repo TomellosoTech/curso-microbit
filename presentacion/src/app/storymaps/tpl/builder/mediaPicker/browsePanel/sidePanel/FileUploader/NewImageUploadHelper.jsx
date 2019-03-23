@@ -49,7 +49,7 @@ const handleGifFile = function(file) {
       }
 
       // we pass the dimensions back to the requesting function.
-      resolveWithData({file, img, dataUrl: 'resources/tpl/viewer/icons/loading-light.gif'}, resolve);
+      resolveWithData({file, img, dataUrl: 'resources/tpl/viewer/icons/pacman.gif'}, resolve);
 
     }).catch(reject); // pass createNewImage rejection along.
 

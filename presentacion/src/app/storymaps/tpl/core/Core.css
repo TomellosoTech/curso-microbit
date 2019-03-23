@@ -287,7 +287,7 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  background: url('../../../../resources/tpl/viewer/icons/loading-light.gif') no-repeat;
+  background: url('../../../../resources/tpl/viewer/icons/pacman.gif') no-repeat;
   background-size: 17px 20px;
   vertical-align: -5px;
   margin-right: 2px;
@@ -297,7 +297,7 @@
   display: inline-block;
   width: 33px;
   height: 39px;
-  background: url('../../../../resources/tpl/viewer/icons/loading-light.gif');
+  background: url('../../../../resources/tpl/viewer/icons/pacman.gif');
   background-size: 33px 39px;
   background-repeat: no-repeat;
   margin-left: -19px;

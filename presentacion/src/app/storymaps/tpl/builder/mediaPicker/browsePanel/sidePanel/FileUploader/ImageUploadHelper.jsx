@@ -68,7 +68,7 @@ const handleGifFile = function handleGifFile(file, img) {
       file: file,
       width: img.width,
       height: img.height,
-      dataUrl: 'resources/tpl/viewer/icons/loading-light.gif'
+      dataUrl: 'resources/tpl/viewer/icons/pacman.gif'
     });
 
   });
