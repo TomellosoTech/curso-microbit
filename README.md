@@ -2,7 +2,7 @@
 
 Código de [la página del curso de micro:bit](https://www.tomellosotech.org/iniciativa/comunidad-microbit-tomelloso/)
 
-[![Screenshot de la página](https://user-images.githubusercontent.com/826965/54861277-e6ee8c80-4d26-11e9-816b-e9b6a588017f.png)](http://www.tomellosotech.org/curso-microbit/)
+[![Screenshot de la página](https://user-images.githubusercontent.com/826965/54861277-e6ee8c80-4d26-11e9-816b-e9b6a588017f.png)](https://www.tomellosotech.org/iniciativa/comunidad-microbit-tomelloso/)
 
 ## Instrucciones
 
