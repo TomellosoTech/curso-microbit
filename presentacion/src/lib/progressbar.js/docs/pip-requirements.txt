@@ -7,7 +7,7 @@ livereload==2.4.1
 Markdown==2.6.5
 MarkupSafe==0.23
 mdx-sections==0.1
-mkdocs==0.15.3
+mkdocs==1.2.3
 mkdocs-bootstrap==0.1.1
 mkdocs-bootswatch==0.2.0
 pymdown-extensions==1.0.1
