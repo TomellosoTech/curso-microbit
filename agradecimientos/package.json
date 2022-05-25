@@ -6,7 +6,7 @@
     "serve": "grunt server && echo \"http://localhost:9095/src/?appid=APPID\""
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "~1.5.3",
     "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-requirejs": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",
