@@ -33,7 +33,7 @@
     "grunt-contrib-less": "^1.2.0",
     "grunt-contrib-requirejs": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
-    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
     "grunt-eslint": "^18.0.0",
     "grunt-execute": "^0.2.2",
     "grunt-mkdir": "^1.0.0",
